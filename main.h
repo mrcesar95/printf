@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdio.h>
-#inlcude <stdlib.h>
+#include <stdlib.h>
 #include <string.h>
 
 int _printf(const char *format, ...);
@@ -20,4 +20,4 @@ typedef struct format
 } op_t;
 
 
-#enfif
+#endif
