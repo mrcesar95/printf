@@ -20,12 +20,12 @@ int _printf(const char *format, ...)
 
 
 
-	op_t get_opt[] = {
-		{"c", set_char},
-		{"s", set-string},
-		{"i", set_decimal},
-		{"d", set_decimal},
-		{"%", print_percent},
+	op_t get_op[] = {
+		{"c", get_char},
+		{"s", get_str},
+		{"%", get_percent},
+		{"i", get_number},
+		{"d", get_number},
 		{NULL, NULL}
 		};*/
 
@@ -43,11 +43,11 @@ int _printf(const char *format, ...)
 			j = 0;
 			while (j < 10)
 			{
-				if (format[i + 1] == get_op->char[j])
+				if (format[i + 1] == get_op->op[j])
 					break;
 				j++;
 			}
-			temp = (get_op->funt[j])(va_list);
+			temp = (get_op[j / 2].f)(va_list);
 			j = 0;
 			while (temp[j] != '\0')
 			{
@@ -63,3 +63,11 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+
+	write(1, *buffer, cont);
+
+	free(buffer);
+	va_end (ap);
+
+	return (cont);
+}
