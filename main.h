@@ -19,3 +19,5 @@ typedef struct format
 	char *(*f)(va_list va);
 } op_t;
 
+
+#enfif
