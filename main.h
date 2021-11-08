@@ -13,7 +13,7 @@ int _printf(const char *format, ...);
  *@f: Pointer to call the function.
  */
 
-typedef struct formot
+typedef struct format
 {
 	char *op;
 	char *(*f)(va_list va);
