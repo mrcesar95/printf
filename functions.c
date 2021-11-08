@@ -11,7 +11,7 @@
 char *get_char(va_list va)
 {
 	char *c;
-	char a;
+	char *a;
 
 	a = va_arg(va, char *);
 
@@ -47,7 +47,7 @@ char *get_percent(va_list va __attribute__((unused)))
 {
 	char *c;
 
-	*c = '%';
+	c = '%';
 
 	return (c);
 }

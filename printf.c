@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		{"i", get_number},
 		{"d", get_number},
 		{NULL, NULL}
-		};*/
+		};
 
 	if (format == NULL)
 	{
@@ -36,6 +36,7 @@ int _printf(const char *format, ...)
 
 	i = 0;
 	cont = 0;
+	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -47,7 +48,7 @@ int _printf(const char *format, ...)
 					break;
 				j++;
 			}
-			temp = (get_op[j / 2].f)(va_list);
+			temp = (get_op[j / 2].f)(ap);
 			j = 0;
 			while (temp[j] != '\0')
 			{
@@ -64,7 +65,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 
-	write(1, *buffer, cont);
+	write(1, buffer, cont);
 
 	free(buffer);
 	va_end (ap);
