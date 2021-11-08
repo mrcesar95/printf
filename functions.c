@@ -13,7 +13,7 @@ char *get_char(va_list va)
 	char *c;
 	char a;
 
-	a = va_arg(va, char);
+	a = va_arg(va, char *);
 
 	*c = a;
 
@@ -31,7 +31,7 @@ char *get_str(va_list va)
 {
 	char *c;
 
-	c = va_arg(va, *char);
+	c = va_arg(va, char *);
 
 	return (c);
 }
@@ -62,7 +62,7 @@ char *get_number(va_list va)
 {
 	char *c;
 
-	c = va_arg(va, *char);
+	c = va_arg(va, char *);
 
 	return (c);
 }

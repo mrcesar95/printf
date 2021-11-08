@@ -2,7 +2,5 @@
 #include <stdio.h>
 
 int main(void)
-{
-	_printf("Hello world");
-	return (0);
+{_printf("Hello world");
 }

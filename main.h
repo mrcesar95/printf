@@ -19,5 +19,11 @@ typedef struct format
 	char *(*f)(va_list va);
 } op_t;
 
+char *get_char (va_list va);
+char *get_str (va_list va);
+char *get_number (va_list va);
+char *get_percent (va_list va);
+
+
 
 #endif
