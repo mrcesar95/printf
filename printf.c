@@ -39,10 +39,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			j = 0;
 			while (j < 10)
 			{
-				if (format[i + 1] == get_op->op[j])
+				if (format[i] == get_op->op[j])
 					break;
 				j++;
 			}
