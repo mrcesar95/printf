@@ -7,3 +7,15 @@
 
 int _printf(const char *format, ...);
 
+/**
+ * struct format - this is a typedef struct.
+ *@op: pointer type char.
+ *@f: Pointer to call the function.
+ */
+
+typedef struct formot
+{
+	char *op;
+	char *(*f)(va_list va);
+} op_t;
+
