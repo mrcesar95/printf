@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int _printf(const char *format, ...);
 
@@ -13,7 +14,7 @@ int _printf(const char *format, ...);
  *@f: Pointer to call the function.
  */
 
-typedef struct format
+typedef struct op
 {
 	char *op;
 	char *(*f)(va_list va);

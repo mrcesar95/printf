@@ -16,10 +16,6 @@ int _printf(const char *format, ...)
 	char *buffer;
 	char *temp;
 
-	buffer = malloc(sizeof(char) * 1024);
-
-
-
 	op_t get_op[] = {
 		{"c", get_char},
 		{"s", get_str},
@@ -28,6 +24,8 @@ int _printf(const char *format, ...)
 		{"d", get_number},
 		{NULL, NULL}
 		};
+
+	buffer = malloc(sizeof(char) * 1024);
 
 	if (format == NULL)
 	{
