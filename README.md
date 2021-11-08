@@ -1,1 +1,1 @@
-printf Manual
+printf Manual test
