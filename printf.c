@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 
 
 
-	format_t get_opt[] = {
+	op_t get_opt[] = {
 		{"c", set_char},
 		{"s", set-string},
 		{"i", set_decimal},
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 					break;
 				j++;
 			}
-			temp = get_op->funt[j](va_list);
+			temp = (get_op->funt[j])(va_list);
 			j = 0;
 			while (temp[j] != '\0')
 			{
