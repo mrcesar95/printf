@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 		};
 
-	buffer = malloc(sizeof(char) * 1024);
+	buffer = malloc(sizeof(char) * 2048);
 
 	if (format == NULL)
 	{
