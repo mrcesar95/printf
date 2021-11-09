@@ -40,29 +40,19 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			j = 0;
-			while (j < 12)
+			while (j < 10)
 			{
 				if (format[i] == get_op->op[j])
 					break;
 				j++;
 			}
-			if (j == 11 && format[i + 1] == '\0')
-				return (-1);
-			if (j == 11 && format[i + 1] != '\0')
+			temp = (get_op[j / 2].f)(ap);
+			j = 0;
+			while (temp[j] != '\0')
 			{
-				buffer[cont] = format[i];
+				buffer[cont] = temp[j];
 				cont++;
-			}
-			else
-			{
-				temp = (get_op[j / 2].f)(ap);
-				j = 0;
-				while (temp[j] != '\0')
-				{
-					buffer[cont] = temp[j];
-					cont++;
-					j++;
-				}
+				j++;
 			}
 		}
 		else
