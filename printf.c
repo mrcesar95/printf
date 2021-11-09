@@ -66,6 +66,7 @@ int _printf(const char *format, ...)
 					cont++;
 					j++;
 				}
+				free(temp);
 			}
 		}
 		else
