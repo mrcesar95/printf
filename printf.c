@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j;
+	int i, j, k;
 	int cont;
 	char *buffer;
 	char *temp;
@@ -59,14 +59,17 @@ int _printf(const char *format, ...)
 			else
 			{
 				temp = (get_op[j / 2].f)(ap);
-				j = 0;
-				while (temp[j] != '\0')
+				if (temp == NULL)
+					break;
+				k = 0;
+				while (temp[k] != '\0')
 				{
-					buffer[cont] = temp[j];
+					buffer[cont] = temp[k];
 					cont++;
-					j++;
+					k++;
 				}
-				
+				if (j == 0 || j == 6 || j == 8)
+					free(temp);
 			}
 		}
 		else

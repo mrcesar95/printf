@@ -13,8 +13,10 @@ char *get_char(va_list va)
 	char *c;
 	char a;
 
-	a = va_arg(va, int);
 	c = malloc(sizeof(char));
+	if (c == NULL)
+		return (NULL);
+	a = va_arg(va, int);
 	*c = a;
 
 	return (c);
@@ -68,5 +70,7 @@ char *get_number(va_list va)
 	i = va_arg(va, int);
 	c = _itoa(i, 10);
 
+	if (c == NULL)
+		return (NULL);
 	return (c);
 }

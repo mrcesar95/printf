@@ -50,6 +50,9 @@ char *_itoa(int n, int base)
 
 	str = malloc(sizeof(char) * (len + 1));
 
+	if (str == NULL)
+		return (NULL);
+
 	if (n == 0)
 	{
 		*str = '0';
