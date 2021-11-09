@@ -11,13 +11,11 @@
 char *get_char(va_list va)
 {
 	char *c;
-	char a;
 
 	c = malloc(sizeof(char));
 	if (c == NULL)
 		return (NULL);
-	a = va_arg(va, int);
-	*c = a;
+	*c = va_arg(va, int);
 
 	return (c);
 }
