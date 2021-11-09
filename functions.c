@@ -33,7 +33,7 @@ char *get_str(va_list va)
 
 	c = va_arg(va, char *);
 	if (c == NULL)
-		c = "";
+		c = "(null)";
 
 	return (c);
 }
