@@ -9,9 +9,11 @@
 int _printf(const char *format, ...);
 
 /**
- * struct format - this is a typedef struct.
+ * struct op - this is a typedef struct.
  *@op: pointer type char.
  *@f: Pointer to call the function.
+ *
+ * Description:
  */
 
 typedef struct op
@@ -20,10 +22,10 @@ typedef struct op
 	char *(*f)(va_list va);
 } op_t;
 
-char *get_char (va_list va);
-char *get_str (va_list va);
-char *get_number (va_list va);
-char *get_percent (va_list va);
+char *get_char(va_list va);
+char *get_str(va_list va);
+char *get_number(va_list va);
+char *get_percent(va_list va);
 
 void _reverse(char *str, int len);
 char *_itoa(int n, int base);

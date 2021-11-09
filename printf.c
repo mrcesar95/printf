@@ -3,93 +3,51 @@
 /* 0x11. C - printf */
 
 /**
- *printf - print anything
+ *_printf - print anything
  *@format: takes in format specifier
  *
- *Return: the number of characters printed (excluding the null byte used to end output to strings)
+ *Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j, k;
-	int cont;
-	char *buffer;
-	char *temp;
+	int i, j, k, cont;
+	char *buffer, *temp;
+	op_t get_op[] = { {"c", get_char}, {"s", get_str}, {"%", get_percent},
+		{"i", get_number}, {"d", get_number}, {NULL, NULL} };
 
-	op_t get_op[] = {
-		{"c", get_char},
-		{"s", get_str},
-		{"%", get_percent},
-		{"i", get_number},
-		{"d", get_number},
-		{NULL, NULL}
-		};
-
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	buffer = malloc(sizeof(char) * 2048);
-
-	if (buffer == NULL)
-		return (-1);
-
-	if (format == NULL)
-	{
-		free(buffer);
-		return (-1);
-	}
-
-
-	i = 0;
-	cont = 0;
-	va_start(ap, format);
+	i = 0, cont = 0, va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '\0')
-				return (-1);
-			i++;
-			j = 0;
+			i++, j = 0;
 			while (j < 10)
 			{
 				if (format[i] == get_op->op[j])
 					break;
 				j++;
 			}
-			/*printf("El numero de posicion es %d\n", j);*/
-
 			if (j == 10)
-			{
-				i--;
-				buffer[cont] = format[i];
-				cont++;
-			}
+				i--, buffer[cont] = format[i], cont++;
 			else
 			{
-				temp = (get_op[j / 2].f)(ap);
+				temp = (get_op[j / 2].f)(ap), k = 0;
 				if (temp == NULL)
 					break;
-				k = 0;
 				while (temp[k] != '\0')
-				{
-					buffer[cont] = temp[k];
-					cont++;
-					k++;
-				}
+					buffer[cont] = temp[k], cont++,	k++;
 				if (j == 0 || j == 6 || j == 8)
 					free(temp);
 			}
 		}
 		else
-		{
-			buffer[cont] = format[i];
-			cont++;
-		}
+			buffer[cont] = format[i], cont++;
 		i++;
 	}
-
-	write(1, buffer, cont);
-
-	free(buffer);
-	va_end (ap);
-
+	write(1, buffer, cont),	free(buffer), va_end(ap);
 	return (cont);
 }
