@@ -57,10 +57,11 @@ char *get_percent(va_list va __attribute__((unused)))
  */
 char *get_number(va_list va)
 {
-	/*int i;*/
+	int i;
 	char *c;
 
-	c = va_arg(va, char *);
+	i = va_arg(va, int);
+	c = _itoa(i, 10);
 
 	return (c);
 }
