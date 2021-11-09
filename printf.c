@@ -28,9 +28,8 @@ int _printf(const char *format, ...)
 	buffer = malloc(sizeof(char) * 2048);
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
+
 
 	i = 0;
 	cont = 0;
@@ -41,19 +40,29 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			j = 0;
-			while (j < 10)
+			while (j < 12)
 			{
 				if (format[i] == get_op->op[j])
 					break;
 				j++;
 			}
-			temp = (get_op[j / 2].f)(ap);
-			j = 0;
-			while (temp[j] != '\0')
+			if (j == 11 && format[i + 1] == '\0')
+				return (-1);
+			if (j == 11 && format[i + 1] != '\0')
 			{
-				buffer[cont] = temp[j];
+				buffer[cont] = format[i];
 				cont++;
-				j++;
+			}
+			else
+			{
+				temp = (get_op[j / 2].f)(ap);
+				j = 0;
+				while (temp[j] != '\0')
+				{
+					buffer[cont] = temp[j];
+					cont++;
+					j++;
+				}
 			}
 		}
 		else
