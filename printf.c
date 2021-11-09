@@ -38,6 +38,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] = '\0')
+				break;
 			i++;
 			j = 0;
 			while (j < 10)
@@ -46,7 +48,8 @@ int _printf(const char *format, ...)
 					break;
 				j++;
 			}
-			printf("El numero de posicion es %d\n", j);
+			/*printf("El numero de posicion es %d\n", j);*/
+
 			if (j == 10)
 			{
 				i--;
