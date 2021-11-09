@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	buffer = malloc(sizeof(char) * 2048);
 	if (buffer == NULL)
-		return (NULL);
+		return (-1);
 	i = 0, cont = 0, va_start(ap, format);
 	while (format[i] != '\0')
 	{
