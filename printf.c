@@ -26,13 +26,10 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++, j = 0;
-			while (j < 10)
-			{
+			i++;
+			for (j = 0; j < 10; j++)
 				if (format[i] == get_op->op[j])
 					break;
-				j++;
-			}
 			if (j == 10)
 				i--, buffer[cont] = format[i], cont++;
 			else
