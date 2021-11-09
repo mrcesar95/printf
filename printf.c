@@ -38,6 +38,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				break;
 			i++;
 			j = 0;
 			while (j < 10)
@@ -46,13 +48,24 @@ int _printf(const char *format, ...)
 					break;
 				j++;
 			}
-			temp = (get_op[j / 2].f)(ap);
-			j = 0;
-			while (temp[j] != '\0')
+			/*printf("El numero de posicion es %d\n", j);*/
+
+			if (j == 10)
 			{
-				buffer[cont] = temp[j];
+				i--;
+				buffer[cont] = format[i];
 				cont++;
-				j++;
+			}
+			else
+			{
+				temp = (get_op[j / 2].f)(ap);
+				j = 0;
+				while (temp[j] != '\0')
+				{
+					buffer[cont] = temp[j];
+					cont++;
+					j++;
+				}
 			}
 		}
 		else
