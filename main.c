@@ -3,6 +3,7 @@
 
 int main(void)
 {
-	_printf("Hello world %d %i\n", -5, 15);
+	_printf("Let's print a simple sentence.\n");
+	_printf("%c", 'S');
 	return (0);
 }

@@ -11,8 +11,11 @@
 char *get_char(va_list va)
 {
 	char *c;
+	char a;
 
-	c = va_arg(va, char *);
+	a = va_arg(va, int);
+	c = malloc(sizeof(char));
+	*c = a;
 
 	return (c);
 }
