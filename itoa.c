@@ -35,6 +35,7 @@ char *_itoa(int n, int base)
 	int i, temp;
 	int sig, len;
 	char *str;
+	unsigned num;
 
 	temp = n;
 	len = 0;
@@ -59,14 +60,16 @@ char *_itoa(int n, int base)
 	if (n < 0 && base == 10)
 	{
 		sig = 1;
-		n = n * (-1);
+		num = n * (-1);
 	}
+	else
+		num = n;
 
-	while (n != 0)
+	while (num != 0)
 	{
-		temp = n % base;
+		temp = num % base;
 		*(str + i++) = (temp > 9)? (temp-10) + 'A' : temp + '0';
-		n = n / base;
+		num = num / base;
 	}
 
 	if (sig == 1)
