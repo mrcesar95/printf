@@ -32,6 +32,8 @@ char *get_str(va_list va)
 	char *c;
 
 	c = va_arg(va, char *);
+	if (c == NULL)
+		c = "";
 
 	return (c);
 }
