@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	buffer = malloc(sizeof(char) * 2048);
+	if (buffer == NULL)
+		return (NULL);
 	i = 0, cont = 0, va_start(ap, format);
 	while (format[i] != '\0')
 	{
