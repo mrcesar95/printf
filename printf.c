@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	op_t get_op[] = { {"c", get_char}, {"s", get_str}, {"%", get_percent},
 		{"i", get_number}, {"d", get_number}, {NULL, NULL} };
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || (format[0] == '%' && format[0] == '\0'))
 		return (-1);
 	buffer = malloc(sizeof(char) * 2048);
 	if (buffer == NULL)
