@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, j, k, cont;
 	char *buffer, *temp;
-	op_t get_op[] = { {"r", get_binary}, {"c", get_char}, {"s", get_str},
+	op_t get_op[] = { {"b", get_binary}, {"c", get_char}, {"s", get_str},
 			  {"%", get_percent}, {"i", get_number}, {"d", get_number}, {NULL, NULL} };
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
