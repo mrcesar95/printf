@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	_printf("%b", 48);
+	_printf("%r", "hola");
 
 	return (0);
 

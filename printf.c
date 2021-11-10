@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, j, k, cont;
 	char *buffer, *temp;
-	op_t get_op[] = { {"b", get_binary}, {"c", get_char}, {"s", get_str},
+	op_t get_op[] = { {"r", get_binary}, {"c", get_char}, {"s", get_str},
 			  {"%", get_percent}, {"i", get_number}, {"d", get_number}, {NULL, NULL} };
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -34,7 +34,6 @@ int _printf(const char *format, ...)
 				i--, buffer[cont] = format[i], cont++;
 			else
 			{
-				printf("El numero de secuencua es %d\n", j);
 				temp = (get_op[j / 2].f)(ap), k = 0;
 				if (temp == NULL)
 					break;
