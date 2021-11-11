@@ -26,9 +26,12 @@ char *get_char(va_list va);
 char *get_str(va_list va);
 char *get_number(va_list va);
 char *get_percent(va_list va);
+char *get_rot(va_list va);
+char *get_rev(va_list va);
+char *get_binary(va_list va);
 
 void _reverse(char *str, int len);
 char *_itoa(int n, int base);
-
+char *rot13(char *a);
 
 #endif
