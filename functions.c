@@ -11,7 +11,7 @@
 char *get_char(va_list va)
 {
 	char *c;
-
+	
 	c = malloc(sizeof(char));
 	if (c == NULL)
 		return (NULL);

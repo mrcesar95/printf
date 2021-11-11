@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, j, k, cont;
 	char *buffer, *temp;
-	op_t get_op[] = { {"b", get_binary}, {"c", get_char}, {"s", get_str},
+	op_t get_op[] = { {"c", get_char}, {"s", get_str},
 			  {"%", get_percent}, {"i", get_number}, {"d", get_number}, {NULL, NULL} };
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -27,10 +27,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (j = 0; j < 12; j++)
+			for (j = 0; j < 10; j++)
 				if (format[i] == get_op->op[j])
 					break;
-			if (j == 12)
+			if (j == 10)
 				i--, buffer[cont] = format[i], cont++;
 			else
 			{

@@ -59,7 +59,7 @@ char *get_rev(va_list va)
 	c = va_arg(va, char *);
 
 	len = 0;
-	while (c[len] != 0)
+	while (*(c + len) != 0)
 		len++;
 
 	_reverse(c, (len + 1));
